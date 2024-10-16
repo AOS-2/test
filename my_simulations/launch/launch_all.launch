@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    <!-- Set the TurtleBot3 model -->
+    <param name="robot_description" command="$(find xacro)/xacro '$(find turtlebot3_description)/urdf/turtlebot3_waffle.urdf.xacro'" />
+
+    <!-- Start the Gazebo world -->
+    <include file="$(find my_simulations)/launch/start_test_world.launch"/>
+
+    <!-- Spawn the hospital -->
+    <include file="$(find my_simulations)/launch/spawn_hospital.launch"/>
+
+    <!-- Spawn the TurtleBot3 -->
+    <include file="$(find my_simulations)/launch/spawn_turtlebot3.launch">
+        <arg name="x" value="1.0" />
+        <arg name="y" value="1.0" />
+        <arg name="z" value="0.0" />
+    </include>
+</launch>
+
